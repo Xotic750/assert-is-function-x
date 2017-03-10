@@ -41,24 +41,27 @@
  * `es6.shim.js` provides compatibility shims so that legacy JavaScript engines
  * behave as closely as possible to ECMAScript 6 (Harmony).
  *
- * @version 1.0.5
+ * @version 1.1.0
  * @author Xotic750 <Xotic750@gmail.com>
  * @copyright  Xotic750
  * @license {@link <https://opensource.org/licenses/MIT> MIT}
  * @module assert-is-function-x
  */
 
-/*jslint maxlen:80, es6:true, white:true */
+/* jslint maxlen:80, es6:true, white:true */
 
-/*jshint bitwise:true, camelcase:true, curly:true, eqeqeq:true, forin:true,
-  freeze:true, futurehostile:true, latedef:true, newcap:true, nocomma:true,
-  nonbsp:true, singleGroups:true, strict:true, undef:true, unused:true,
-  es3:true, esnext:true, plusplus:true, maxparams:1, maxdepth:1,
-  maxstatements:4, maxcomplexity:3 */
+/* jshint bitwise:true, camelcase:true, curly:true, eqeqeq:true, forin:true,
+   freeze:true, futurehostile:true, latedef:true, newcap:true, nocomma:true,
+   nonbsp:true, singleGroups:true, strict:true, undef:true, unused:true,
+   es3:true, esnext:true, plusplus:true, maxparams:2, maxdepth:1,
+   maxstatements:2, maxcomplexity:2 */
 
-/*global require, module */
+/* eslint strict: 1, max-statements: 1 */
 
-;(function () {
+/* global require, module */
+
+;(function () { // eslint-disable-line no-extra-semi
+
   'use strict';
 
   var isFunction = require('is-function-x');
@@ -91,12 +94,10 @@
    * assertIsFunction(fn);
    *    // Returns fn.
    */
-  module.exports =  function assertIsFunction(callback) {
+  module.exports = function assertIsFunction(callback) {
     if (!isFunction(callback)) {
-      throw new TypeError(
-        (isPrimitive(callback) ? safeToString(callback) : '#<Object>') +
-        ' is not a function'
-      );
+      var msg = isPrimitive(callback) ? safeToString(callback) : '#<Object>';
+      throw new TypeError(msg + ' is not a function');
     }
     return callback;
   };
