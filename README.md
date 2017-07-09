@@ -1,6 +1,8 @@
 <a name="module_assert-is-function-x"></a>
 
 ## assert-is-function-x
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/Xotic750/assert-is-function-x.svg)](https://greenkeeper.io/)
 <a href="https://travis-ci.org/Xotic750/assert-is-function-x"
 title="Travis status">
 <img
