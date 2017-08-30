@@ -1,6 +1,6 @@
 /**
  * @file If isFunction(callbackfn) is false, throw a TypeError exception.
- * @version 1.5.0
+ * @version 2.0.0
  * @author Xotic750 <Xotic750@gmail.com>
  * @copyright  Xotic750
  * @license {@link <https://opensource.org/licenses/MIT> MIT}
@@ -44,5 +44,6 @@ module.exports = function assertIsFunction(callback) {
     var msg = isPrimitive(callback) ? safeToString(callback) : '#<Object>';
     throw new TypeError(msg + ' is not a function');
   }
+
   return callback;
 };
