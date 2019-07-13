@@ -1,17 +1,15 @@
 /**
  * @file If isFunction(callbackfn) is false, throw a TypeError exception.
- * @version 2.1.0
- * @author Xotic750 <Xotic750@gmail.com>
- * @copyright  Xotic750
+ * @version 2.1.0.
+ * @author Xotic750 <Xotic750@gmail.com>.
+ * @copyright  Xotic750.
  * @license {@link <https://opensource.org/licenses/MIT> MIT}
- * @module assert-is-function-x
+ * @module Assert-is-function-x.
  */
 
-'use strict';
-
-var isFunction = require('is-function-x');
-var safeToString = require('to-string-symbols-supported-x');
-var isPrimitive = require('is-primitive');
+const isFunction = require('is-function-x');
+const safeToString = require('to-string-symbols-supported-x');
+const isPrimitive = require('is-primitive');
 
 /**
  * Tests `callback` to see if it is a function, throws a `TypeError` if it is
@@ -26,7 +24,7 @@ var isPrimitive = require('is-primitive');
  * var mySymbol = Symbol('mySymbol');
  * var symObj = Object(mySymbol);
  * var object = {};
- * function fn () {}
+ * function fn () {}.
  *
  * assertIsFunction(primitive);
  *    // TypeError 'true is not a function'.
@@ -41,8 +39,8 @@ var isPrimitive = require('is-primitive');
  */
 module.exports = function assertIsFunction(callback) {
   if (isFunction(callback) === false) {
-    var msg = isPrimitive(callback) ? safeToString(callback) : '#<Object>';
-    throw new TypeError(msg + ' is not a function');
+    const msg = isPrimitive(callback) ? safeToString(callback) : '#<Object>';
+    throw new TypeError(`${msg} is not a function`);
   }
 
   return callback;
