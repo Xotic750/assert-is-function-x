@@ -1,31 +1,20 @@
+import noop from 'lodash/noop';
+import assertIsFunction from '../src/assert-is-function-x';
+
+/* eslint-disable-next-line compat/compat */
 const hasSymbolSupport = typeof Symbol === 'function' && typeof Symbol('') === 'symbol';
 const ifSymbolSupportIt = hasSymbolSupport ? it : xit;
-let assertIsFunction;
-
-if (typeof module === 'object' && module.exports) {
-  require('es5-shim');
-  require('es5-shim/es5-sham');
-
-  if (typeof JSON === 'undefined') {
-    JSON = {};
-  }
-
-  require('json3').runInContext(null, JSON);
-  require('es6-shim');
-  assertIsFunction = require('../../index.js');
-} else {
-  assertIsFunction = returnExports;
-}
 
 describe('assertIsFunction', function() {
   it('primitives should throw a TypeError', function() {
+    expect.assertions(11);
     const block = function(value) {
       try {
         assertIsFunction(value);
 
         return false;
       } catch (e) {
-        expect(e).toStrictEqual(jasmine.any(TypeError));
+        expect(e).toStrictEqual(expect.any(TypeError));
         expect(e.message).toBe(`${String(value)} is not a function`);
       }
 
@@ -41,13 +30,14 @@ describe('assertIsFunction', function() {
   });
 
   it('objects should throw a TypeError', function() {
+    expect.assertions(9);
     const block = function(value) {
       try {
         assertIsFunction(value);
 
         return false;
       } catch (e) {
-        expect(e).toStrictEqual(jasmine.any(TypeError));
+        expect(e).toStrictEqual(expect.any(TypeError));
         expect(e.message).toBe('#<Object> is not a function');
       }
 
@@ -63,19 +53,21 @@ describe('assertIsFunction', function() {
   });
 
   ifSymbolSupportIt('Symbol literals should throw a TypeError', function() {
+    expect.assertions(3);
     const block = function(value) {
       try {
         assertIsFunction(value);
 
         return false;
       } catch (e) {
-        expect(e).toStrictEqual(jasmine.any(TypeError));
+        expect(e).toStrictEqual(expect.any(TypeError));
         expect(e.message).toBe('Symbol(mySymbol) is not a function');
       }
 
       return true;
     };
 
+    /* eslint-disable-next-line compat/compat */
     const values = [Symbol('mySymbol')];
     const expected = values.map(function() {
       return true;
@@ -85,19 +77,21 @@ describe('assertIsFunction', function() {
   });
 
   ifSymbolSupportIt('Symbol objects should throw a TypeError', function() {
+    expect.assertions(3);
     const block = function(value) {
       try {
         assertIsFunction(value);
 
         return false;
       } catch (e) {
-        expect(e).toStrictEqual(jasmine.any(TypeError));
+        expect(e).toStrictEqual(expect.any(TypeError));
         expect(e.message).toBe('#<Object> is not a function');
       }
 
       return true;
     };
 
+    /* eslint-disable-next-line compat/compat */
     const values = [Object(Symbol('mySymbol'))];
     const expected = values.map(function() {
       return true;
@@ -107,15 +101,18 @@ describe('assertIsFunction', function() {
   });
 
   it('should return the function', function() {
+    expect.assertions(1);
     const block = function(value) {
       try {
         return assertIsFunction(value);
-      } catch (ignore) {}
+      } catch (ignore) {
+        // empty
+      }
 
       return false;
     };
 
-    const values = [function() {}, Array, block, assertIsFunction];
+    const values = [noop, Array, block, assertIsFunction];
     const expected = values.map(function(x) {
       return x;
     });

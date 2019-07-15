@@ -21,15 +21,13 @@
 <a name="module_assert-is-function-x"></a>
 
 ## assert-is-function-x
+
 If isFunction(callbackfn) is false, throw a TypeError exception.
 
-**Version**: 2.1.0  
-**Author**: Xotic750 <Xotic750@gmail.com>  
-**License**: [MIT](&lt;https://opensource.org/licenses/MIT&gt;)  
-**Copyright**: Xotic750  
 <a name="exp_module_assert-is-function-x--module.exports"></a>
 
 ### `module.exports(callback)` ⇒ <code>\*</code> ⏏
+
 Tests `callback` to see if it is a function, throws a `TypeError` if it is
 not. Otherwise returns the `callback`.
 
@@ -39,28 +37,24 @@ not. Otherwise returns the `callback`.
 
 - <code>TypeError</code> Throws if `callback` is not a function.
 
-
-| Param | Type | Description |
-| --- | --- | --- |
+| Param    | Type            | Description                |
+| -------- | --------------- | -------------------------- |
 | callback | <code>\*</code> | The argument to be tested. |
 
-**Example**  
-```js
-var assertIsFunction = require('assert-is-function-x');
-var primitive = true;
-var mySymbol = Symbol('mySymbol');
-var symObj = Object(mySymbol);
-var object = {};
-function fn () {}
+**Example**
 
-assertIsFunction(primitive);
-   // TypeError 'true is not a function'.
-assertIsFunction(object);
-   // TypeError '#<Object> is not a function'.
-assertIsFunction(mySymbol);
-   // TypeError 'Symbol(mySymbol) is not a function'.
-assertIsFunction(symObj);
-   // TypeError '#<Object> is not a function'.
-assertIsFunction(fn);
-   // Returns fn.
+```js
+import assertIsFunction from 'assert-is-function-x';
+
+const primitive = true;
+const mySymbol = Symbol('mySymbol');
+const symObj = Object(mySymbol);
+const object = {};
+const fn = function fn() {};
+
+assertIsFunction(primitive); // TypeError 'true is not a function'.
+assertIsFunction(object); // TypeError '#<Object> is not a function'.
+assertIsFunction(mySymbol); // TypeError 'Symbol(mySymbol) is not a function'.
+assertIsFunction(symObj); // TypeError '#<Object> is not a function'.
+console.log(assertIsFunction(fn)); // Returns fn.
 ```
