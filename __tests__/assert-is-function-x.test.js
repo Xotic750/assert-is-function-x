@@ -1,7 +1,6 @@
 import noop from 'lodash/noop';
 import assertIsFunction from '../src/assert-is-function-x';
 
-/* eslint-disable-next-line compat/compat */
 const hasSymbolSupport = typeof Symbol === 'function' && typeof Symbol('') === 'symbol';
 const ifSymbolSupportIt = hasSymbolSupport ? it : xit;
 
@@ -67,7 +66,6 @@ describe('assertIsFunction', function() {
       return true;
     };
 
-    /* eslint-disable-next-line compat/compat */
     const values = [Symbol('mySymbol')];
     const expected = values.map(function() {
       return true;
@@ -91,7 +89,6 @@ describe('assertIsFunction', function() {
       return true;
     };
 
-    /* eslint-disable-next-line compat/compat */
     const values = [Object(Symbol('mySymbol'))];
     const expected = values.map(function() {
       return true;
