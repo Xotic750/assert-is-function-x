@@ -10,13 +10,15 @@ import isPrimitive from 'is-primitive';
  * @returns {*} Returns `callback` if it is function.
  */
 
-export default function assertIsFunction(callback) {
+var assertIsFunction = function assertIsFunction(callback) {
   if (isFunction(callback) === false) {
     var msg = isPrimitive(callback) ? safeToString(callback) : '#<Object>';
     throw new TypeError("".concat(msg, " is not a function"));
   }
 
   return callback;
-}
+};
+
+export default assertIsFunction;
 
 //# sourceMappingURL=assert-is-function-x.esm.js.map
