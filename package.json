@@ -1,6 +1,6 @@
 {
   "name": "assert-is-function-x",
-  "version": "3.0.8",
+  "version": "3.0.9",
   "description": "If isFunction(callbackfn) is false, throw a TypeError exception.",
   "homepage": "https://github.com/Xotic750/assert-is-function-x",
   "author": {
@@ -48,9 +48,9 @@
     "url": "https://github.com/Xotic750/assert-is-function-x/issues"
   },
   "dependencies": {
-    "is-function-x": "^4.0.15",
+    "is-function-x": "^4.0.17",
     "is-primitive": "^3.0.1",
-    "to-string-symbols-supported-x": "^2.0.9"
+    "to-string-symbols-supported-x": "^2.0.11"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
