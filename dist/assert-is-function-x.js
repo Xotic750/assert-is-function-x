@@ -2,7 +2,7 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2015-2017",
-  "date": "2019-07-27T21:38:42.296Z",
+  "date": "2019-07-29T19:22:15.060Z",
   "describe": "",
   "description": "If isFunction(callbackfn) is false, throw a TypeError exception.",
   "file": "assert-is-function-x.js",
