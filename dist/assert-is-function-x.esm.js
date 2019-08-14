@@ -6,14 +6,15 @@ import isPrimitive from 'is-primitive';
  * not. Otherwise returns the `callback`.
  *
  * @param {*} callback - The argument to be tested.
+ * @param {string} [message] - An alternative user message.
  * @throws {TypeError} Throws if `callback` is not a function.
  * @returns {*} Returns `callback` if it is function.
  */
 
-var assertIsFunction = function assertIsFunction(callback) {
+var assertIsFunction = function assertIsFunction(callback, message) {
   if (isFunction(callback) === false) {
-    var msg = isPrimitive(callback) ? safeToString(callback) : '#<Object>';
-    throw new TypeError("".concat(msg, " is not a function"));
+    var msg = arguments.length > 1 ? safeToString(message) : "".concat(isPrimitive(callback) ? safeToString(callback) : '#<Object>', " is not a function");
+    throw new TypeError(msg);
   }
 
   return callback;

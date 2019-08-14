@@ -61,9 +61,10 @@ not. Otherwise returns the `callback`.
 
 - <code>TypeError</code> Throws if `callback` is not a function.
 
-| Param    | Type            | Description                |
-| -------- | --------------- | -------------------------- |
-| callback | <code>\*</code> | The argument to be tested. |
+| Param     | Type                | Description                   |
+| --------- | ------------------- | ----------------------------- |
+| callback  | <code>\*</code>     | The argument to be tested.    |
+| [message] | <code>string</code> | Optional alternative message. |
 
 **Example**
 
