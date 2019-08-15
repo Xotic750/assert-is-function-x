@@ -1,6 +1,6 @@
 import isFunction from 'is-function-x';
 import safeToString from 'to-string-symbols-supported-x';
-import isPrimitive from 'is-primitive';
+import isPrimitive from 'is-primitive-x';
 /**
  * Tests `callback` to see if it is a function, throws a `TypeError` if it is
  * not. Otherwise returns the `callback`.

@@ -2,11 +2,11 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2015-2017",
-  "date": "2019-08-15T18:14:05.640Z",
+  "date": "2019-08-15T18:47:53.086Z",
   "describe": "",
   "description": "If isFunction(callbackfn) is false, throw a TypeError exception.",
   "file": "assert-is-function-x.js",
-  "hash": "e5e01259636efc071a0c",
+  "hash": "248abfdefb9b895a4060",
   "license": "MIT",
   "version": "3.1.0"
 }
@@ -1045,6 +1045,22 @@ var toStringSymbolsSupported = function toStringSymbolsSupported(value) {
 /* harmony default export */ var to_string_symbols_supported_x_esm = (toStringSymbolsSupported);
 
 
+// CONCATENATED MODULE: ./node_modules/is-primitive-x/dist/is-primitive-x.esm.js
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+/**
+ * Returns true if the value is a primitive.
+ *
+ * @param {*} [val] - The value to test.
+ * @returns {boolean} True if a primitive, otherwise false..
+ */
+var isPrimitive = function isPrimitive(val) {
+  return _typeof(val) === 'object' ? val === null : typeof val !== 'function';
+};
+
+/* harmony default export */ var is_primitive_x_esm = (isPrimitive);
+
+
 // CONCATENATED MODULE: ./dist/assert-is-function-x.esm.js
 
 
@@ -1061,7 +1077,7 @@ var toStringSymbolsSupported = function toStringSymbolsSupported(value) {
 
 var assert_is_function_x_esm_assertIsFunction = function assertIsFunction(callback, message) {
   if (is_function_x_esm(callback) === false) {
-    var msg = arguments.length > 1 ? to_string_symbols_supported_x_esm(message) : "".concat(is_primitive_default()(callback) ? to_string_symbols_supported_x_esm(callback) : '#<Object>', " is not a function");
+    var msg = arguments.length > 1 ? to_string_symbols_supported_x_esm(message) : "".concat(is_primitive_x_esm(callback) ? to_string_symbols_supported_x_esm(callback) : '#<Object>', " is not a function");
     throw new TypeError(msg);
   }
 
