@@ -2,13 +2,13 @@
 {
   "author": "Graham Fairweather",
   "copywrite": "Copyright (c) 2015-2017",
-  "date": "2019-08-28T15:22:47.670Z",
+  "date": "2019-08-28T17:19:24.077Z",
   "describe": "",
   "description": "If isFunction(callbackfn) is false, throw a TypeError exception.",
   "file": "assert-is-function-x.js",
   "hash": "c89446f35eafb3e74ff5",
   "license": "MIT",
-  "version": "3.1.1"
+  "version": "3.1.2"
 }
 */
 (function webpackUniversalModuleDefinition(root, factory) {
